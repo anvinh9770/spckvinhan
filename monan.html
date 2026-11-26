@@ -7,36 +7,36 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container">
-        <a class="navbar-brand" href="index.html"><i class="fa-solid fa-utensils"></i> Food Menu</a>
-        <div class="navbar-nav ms-auto flex-row flex-wrap gap-2">
-          <a class="nav-link" href="index.html"><i class="fa-solid fa-house"></i> Trang chủ</a>
-          <a class="nav-link active" href="monan.html"><i class="fa-solid fa-bowl-food"></i> Món ăn</a>
-          <a class="nav-link" href="douong.html"><i class="fa-solid fa-mug-saucer"></i> Đồ uống</a>
-          <a class="nav-link" href="dochay.html"><i class="fa-solid fa-leaf"></i> Món chay</a>
-          <a class="nav-link" href="lienhe.html"><i class="fa-solid fa-phone"></i> Liên hệ</a>
-          <a class="nav-link" href="giohang.html"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng</a>
-        </div>
-      </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg" aria-label="Điều hướng chính">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fa-solid fa-utensils" aria-hidden="true"></i> Food Menu</a>
+    <div class="navbar-nav ms-auto flex-row flex-wrap gap-1">
+      <a class="nav-link" href="index.html">Trang chủ</a>
+      <a class="nav-link" href="monan.html">Món ăn</a>
+      <a class="nav-link" href="douong.html">Đồ uống</a>
+      <a class="nav-link" href="dochay.html">Món chay</a>
+      <a class="nav-link" href="lienhe.html">Liên hệ</a>
+      <a class="nav-link" href="giohang.html">Giỏ hàng <span class="cart-count" data-cart-count>0</span></a>
+    </div>
+  </div>
+</nav>
 
     <section class="banner">
       <h1>Thực Đơn Món Ăn</h1>
       <p>Những món ăn ngon và được yêu thích nhất.</p>
     </section>
 
-    
 
-    <main class="container my-5 menu-page">
+
+    <main class="container my-5 menu-page"><p class="menu-label">Thực đơn mẫu của quán · Giá minh họa, tách riêng phần công thức API bên dưới.</p>
       <div class="row g-4">
         <div class="col-md-4">
           <div class="card food-card h-100">
-            <img src="images/phobo.webp" class="card-img-top" alt="Phở bò" />
+            <img src="assets/images/phobo.webp" class="card-img-top" alt="Phở bò" />
             <div class="card-body text-center">
               <h4 class="card-title">Phở Bò</h4>
               <p>Nước dùng đậm đà, thịt bò mềm.</p>
@@ -48,23 +48,11 @@
 
         <div class="col-md-4">
           <div class="card food-card h-100">
-            <img src="images/comga1.webp" class="card-img-top" alt="Cơm gà" />
+            <img src="assets/images/comga1.webp" class="card-img-top" alt="Cơm gà" />
             <div class="card-body text-center">
               <h4 class="card-title">Cơm Gà</h4>
               <p>Gà chiên giòn, cơm thơm.</p>
               <p class="price">59.000đ</p>
-              <button type="button" class="btn btn-orange order-btn" data-add-cart data-name="Phở Bò" data-price="55000"><i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card food-card h-100">
-            <img src="images/mixao.webp" class="card-img-top" alt="Mì xào hải sản" />
-            <div class="card-body text-center">
-              <h4 class="card-title">Mì Xào Hải Sản</h4>
-              <p>Tôm, mực và rau tươi.</p>
-              <p class="price">65.000đ</p>
               <button type="button" class="btn btn-orange order-btn" data-add-cart data-name="Cơm Gà" data-price="59000"><i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ</button>
             </div>
           </div>
@@ -72,11 +60,11 @@
 
         <div class="col-md-4">
           <div class="card food-card h-100">
-            <img src="images/bunbo.jpg" class="card-img-top" alt="Bún bò Huế" />
+            <img src="assets/images/mixao.webp" class="card-img-top" alt="Mì xào hải sản" />
             <div class="card-body text-center">
-              <h4 class="card-title">Bún Bò Huế</h4>
-              <p>Hương vị cay thơm đặc trưng.</p>
-              <p class="price">50.000đ</p>
+              <h4 class="card-title">Mì Xào Hải Sản</h4>
+              <p>Tôm, mực và rau tươi.</p>
+              <p class="price">65.000đ</p>
               <button type="button" class="btn btn-orange order-btn" data-add-cart data-name="Mì Xào Hải Sản" data-price="65000"><i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ</button>
             </div>
           </div>
@@ -84,11 +72,11 @@
 
         <div class="col-md-4">
           <div class="card food-card h-100">
-            <img src="images/khoaitaychien.jpg" class="card-img-top" alt="Khoai tây chiên" />
+            <img src="assets/images/bunbo.jpg" class="card-img-top" alt="Bún bò Huế" />
             <div class="card-body text-center">
-              <h4 class="card-title">Khoai Tây Chiên</h4>
-              <p>Giòn ngon, hấp dẫn.</p>
-              <p class="price">30.000đ</p>
+              <h4 class="card-title">Bún Bò Huế</h4>
+              <p>Hương vị cay thơm đặc trưng.</p>
+              <p class="price">50.000đ</p>
               <button type="button" class="btn btn-orange order-btn" data-add-cart data-name="Bún Bò Huế" data-price="50000"><i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ</button>
             </div>
           </div>
@@ -96,12 +84,24 @@
 
         <div class="col-md-4">
           <div class="card food-card h-100">
-            <img src="images/pizza.jpg" class="card-img-top" alt="Pizza" />
+            <img src="assets/images/khoaitaychien.jpg" class="card-img-top" alt="Khoai tây chiên" />
+            <div class="card-body text-center">
+              <h4 class="card-title">Khoai Tây Chiên</h4>
+              <p>Giòn ngon, hấp dẫn.</p>
+              <p class="price">30.000đ</p>
+              <button type="button" class="btn btn-orange order-btn" data-add-cart data-name="Khoai Tây Chiên" data-price="30000"><i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card food-card h-100">
+            <img src="assets/images/pizza.jpg" class="card-img-top" alt="Pizza" />
             <div class="card-body text-center">
               <h4 class="card-title">Pizza</h4>
               <p>Phô mai béo thơm.</p>
               <p class="price">99.000đ</p>
-              <button type="button" class="btn btn-orange order-btn" data-add-cart data-name="Khoai Tây Chiên" data-price="30000"><i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ</button>
+              <button type="button" class="btn btn-orange order-btn" data-add-cart data-name="Pizza" data-price="99000"><i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ</button>
             </div>
           </div>
         </div>
@@ -113,7 +113,7 @@
     <section class="container my-5" id="api-food-section">
       <div class="text-center mb-4">
         <h2 class="section-title">Khám phá món ăn</h2>
-        <p class="text-muted">Tìm kiếm công thức và thông tin món ăn từ TheMealDB.</p>
+        <p class="text-muted">Tìm công thức từ TheMealDB, xem chi tiết và lưu đánh giá. Công thức API không có giá bán của quán.</p>
       </div>
       <div class="api-search mx-auto mb-4">
         <div class="input-group">
@@ -126,45 +126,19 @@
       <div id="api-meal-list" class="row g-4"></div>
     </section>
 
-    <!-- Chi tiết món ăn và đánh giá -->
-    <div class="modal fade" id="mealReviewModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content review-modal">
-          <div class="modal-header">
-            <h5 class="modal-title" id="review-meal-title">Chi tiết món ăn</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
-          </div>
-          <div class="modal-body">
-            <div id="review-meal-detail" class="mb-4"></div>
-            <div class="review-form-box">
-              <h6>Đánh giá món ăn</h6>
-              <label for="review-stars" class="form-label">Chọn số sao</label>
-              <select id="review-stars" class="form-select mb-3">
-                <option value="5">★★★★★ - Rất ngon</option>
-                <option value="4">★★★★☆ - Ngon</option>
-                <option value="3">★★★☆☆ - Bình thường</option>
-                <option value="2">★★☆☆☆ - Chưa ngon</option>
-                <option value="1">★☆☆☆☆ - Không hài lòng</option>
-              </select>
-              <label for="review-comment" class="form-label">Nhận xét</label>
-              <textarea id="review-comment" class="form-control mb-3" rows="3"
-                        maxlength="500" placeholder="Nhập nhận xét của bạn..."></textarea>
-              <button id="submit-review" type="button" class="btn btn-orange">Gửi đánh giá</button>
-            </div>
-            <hr>
-            <h6>Đánh giá từ khách hàng</h6>
-            <div id="review-list"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+
 
     <footer>
       <h4><i class="fa-solid fa-utensils"></i> Food Menu</h4>
       <p>© 2026 Food Menu. All Rights Reserved.</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="app.js"></script>
-  <script src="api-reviews.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/reviews.js"></script>
+<script src="assets/js/food-ui.js"></script>
+<script src="assets/js/catalog.js"></script>
+<script src="assets/js/monan.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background
 .navbar-brand{color:var(--orange)!important;font-size:25px;font-weight:800}.navbar-nav{align-items:center}
 .nav-link{color:#454545!important;font-weight:600;border-radius:22px;padding:9px 12px!important;transition:.2s}
 .nav-link:hover,.nav-link.active{color:var(--orange)!important;background:var(--orange-soft)}
-.banner{position:relative;overflow:hidden;text-align:center;padding:82px 20px;color:#fff;background:linear-gradient(110deg,rgba(191,78,0,.88),rgba(255,122,0,.83)),url("images/poster-do-an-onl.jpg") center/cover;border-radius:0 0 34px 34px}
+.banner{position:relative;overflow:hidden;text-align:center;padding:82px 20px;color:#fff;background:linear-gradient(110deg,rgba(191,78,0,.88),rgba(255,122,0,.83)),url("../images/poster-do-an-onl.jpg") center/cover;border-radius:0 0 34px 34px}
 .banner:after{content:"";position:absolute;width:240px;height:240px;border:34px solid rgba(255,255,255,.12);border-radius:50%;right:-55px;top:-95px}
 .banner h1{position:relative;z-index:1;font-size:clamp(30px,4vw,48px);font-weight:800;margin-bottom:12px}
 .banner p{position:relative;z-index:1;font-size:18px;margin-bottom:0}.banner .btn{position:relative;z-index:1}
@@ -36,8 +36,43 @@ footer{background:#302820;color:#fff;text-align:center;padding:30px 18px;margin-
 /* Phần API món ăn và đánh giá - giữ nguyên giao diện trắng cam */
 .api-search { max-width: 650px; }
 .api-food-card .card-img-top { height: 220px; object-fit: cover; }
-.review-modal { border: 0; border-radius: 14px; }
 .review-form-box { background: #fff7ef; border-radius: 12px; padding: 18px; }
 .rating-stars { color: #f0a500; letter-spacing: 1px; }
 .review-item { padding: 14px 0; border-bottom: 1px solid #eee; }
-.recipe-instructions { white-space: pre-line; line-height: 1.65; max-height: 260px; overflow-y: auto; }
+
+/* Chỉnh UI vừa phải, giữ nhận diện trắng/cam của học sinh. */
+:root { --orange:#b85108; --orange-dark:#944006; }
+body { min-height:100vh; display:flex; flex-direction:column; }
+main { flex:1; }
+.navbar > .container { gap:12px; flex-wrap:wrap; }
+.navbar-nav { gap:4px; }
+.nav-link { font-size:14px; }
+.navbar .account-area { margin-left:0; }
+.navbar-brand { font-size:23px; }
+.banner { padding:54px 20px; border-radius:0 0 22px 22px; }
+.banner h1 { font-size:clamp(28px,4vw,44px); }
+.page-header { padding:48px 20px; background:var(--orange-soft); border-radius:0 0 22px 22px; }
+.food-card { border:1px solid #f0e1d4; border-radius:14px; }
+.food-card:hover { transform:translateY(-3px); }
+.food-card .card-title { line-height:1.4; overflow-wrap:anywhere; }
+.food-card .card-body { padding:20px; }
+.food-card .btn { min-height:44px; }
+.cart-count { display:inline-block; min-width:19px; border-radius:10px; background:#fff1e3; color:#944006; text-align:center; font-size:12px; }
+.menu-label { color:#745a44; font-size:14px; margin-bottom:24px; padding:12px 16px; background:#fff1e3; border-radius:10px; }
+.recipe-breadcrumb { display:flex; gap:10px; flex-wrap:wrap; font-size:14px; color:#6c757d; margin-bottom:26px; }
+.recipe-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:38px; background:white; border:1px solid #f0e1d4; border-radius:16px; padding:26px; }
+.recipe-image { width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:12px; }
+.recipe-kicker { color:#944006; font-size:12px; font-weight:700; letter-spacing:1px; }
+.recipe-title { font-size:clamp(26px,3vw,38px); line-height:1.2; margin:12px 0 16px; overflow-wrap:anywhere; }
+.recipe-ingredients { padding-left:20px; margin-top:16px; }
+.recipe-ingredients li { padding-block:5px; }
+.recipe-rating { color:#945800; font-weight:600; }
+.recipe-section { margin-top:30px; padding:26px; background:white; border:1px solid #f0e1d4; border-radius:14px; }
+.recipe-directions { white-space:pre-line; line-height:1.85; margin:20px 0 0; overflow-wrap:anywhere; }
+.recipe-section .review-form-box { height:100%; }
+.review-item p { white-space:pre-wrap; overflow-wrap:anywhere; margin-top:8px; }
+#review-feedback { margin-top:12px; }
+[hidden] { display:none !important; }
+@media(max-width:991px) { .navbar > .container { justify-content:center; } .navbar-nav { justify-content:center; } .navbar .account-menu { left:auto; right:0; } }
+@media(max-width:750px) { .recipe-layout { grid-template-columns:1fr; gap:24px; padding:18px; } .recipe-image { max-height:360px; } .recipe-section { padding:20px; } .banner { padding:38px 16px; } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .food-card,.btn { transition:none; } }
