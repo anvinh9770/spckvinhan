@@ -1,0 +1,110 @@
+﻿THẦY NOTE LẠI CHO EM
+
+Thầy đã xem qua project Food Menu của em. Hướng dùng API để tìm món và xem
+công thức phù hợp với bài. Thầy chỉnh thêm bố cục, cách chia file và luồng
+mở chi tiết cho rõ hơn để em theo dõi và phát triển tiếp.
+
+Giữ TheMealDB cho món ăn/món chay và TheCocktailDB cho đồ uống.
+Các đánh giá đã lưu vẫn dùng key cũ trong trình duyệt.
+
+NHỮNG CHỖ THẦY ĐÃ XEM VÀ CHỈNH
+
+Các trang HTML và assets/css/style.css
+- Gom CSS, JS, ảnh vào assets/css, assets/js, assets/images; cập nhật đường dẫn.
+- Chỉnh menu giữa các trang cho thống nhất, đánh dấu trang đang mở và hiện số món trong giỏ.
+- Chỉnh banner, khoảng cách và card cho đều hơn.
+- Chi tiết hai cột trên máy tính, một cột trên điện thoại; phần cách làm đọc đầy đủ.
+- Sửa tên/giá trong nút thêm giỏ bị lệch so với nội dung một số card.
+
+assets/js/config.js
+- Gom URL API, từ khóa mặc định, ảnh dự phòng và key đánh giá về một chỗ.
+- Đường dẫn /v1/1 dùng test key công khai của nguồn cho việc học.
+
+assets/js/api.js
+- Fetch chung, kiểm tra response.ok, xử lý meals/drinks bằng null thành mảng rỗng.
+- Chuẩn hóa dữ liệu để món ăn và đồ uống dùng cùng cách render.
+- Món chay gộp Vegetarian/Vegan, bỏ ID trùng và tìm trên danh sách đã lọc.
+- Chi tiết gọi lookup.php theo ID để lấy đủ nguyên liệu và cách làm.
+
+assets/js/food-ui.js và assets/js/catalog.js
+- Tạo card, tìm kiếm, hiện đang tải/không có kết quả/lỗi và nút thử lại.
+- Khi tìm liên tiếp, kết quả request cũ không ghi đè kết quả mới.
+- Tên từ API được đưa vào DOM bằng textContent.
+
+assets/js/monan.js, douong.js, monchay.js
+- Mỗi trang chọn loại dữ liệu và các ID HTML tương ứng, dùng chung luồng danh sách.
+
+chitiet.html và assets/js/detail.js
+- Link card có type và id: chitiet.html?type=meal&id=...
+- type chọn đúng nguồn món ăn/đồ uống; id chọn đúng công thức.
+- Render ảnh, nguyên liệu, cách làm và link nguồn/video nếu có.
+- Mở link trực tiếp hoặc refresh vẫn fetch đúng công thức.
+- Có thông báo khi link sai, không tìm thấy món hoặc kết nối lỗi.
+
+assets/js/reviews.js
+- Lưu đánh giá riêng theo loại và ID công thức, giữ key cũ.
+- Chặn sao ngoài 1–5, nhận xét toàn khoảng trắng hoặc quá 500 ký tự.
+- Nhận xét hiển thị bằng textContent, chỉ lưu trên trình duyệt đang dùng.
+
+assets/js/app.js
+- Giữ giỏ thực đơn mẫu và menu tài khoản.
+- Đọc giỏ/currentUser hỏng không làm vỡ trang món ăn.
+- Số lượng giỏ nhận số nguyên 1–99, có thông báo khi không ghi được storage.
+
+PHẦN EM CẦN PHÂN BIỆT
+
+Thực đơn có giá là dữ liệu mẫu của quán đang viết trong HTML.
+Phần khám phá công thức mới là dữ liệu lấy từ API. Hai nguồn công thức không
+có giá bán hay tồn kho của quán, nên không ghép tùy ý giá thực đơn vào món API.
+
+Em trao đổi với thầy để chốt hướng khám phá công thức hay đặt món. Nếu tiêu chí
+cuối khóa là toàn bộ danh sách phải fetch API, phần thực đơn viết tay còn cần
+nguồn dữ liệu phù hợp; không xem phần này là đã hoàn thành chỉ vì có giỏ.
+
+BUỔI TIẾP THEO — CÔNG THỨC LIÊN QUAN VÀ ĐÁNH GIÁ
+
+Trong một buổi, em cần hoàn thành:
+
+1. Tự đi hết luồng danh sách -> chi tiết.
+- Thử món ăn, món chay và đồ uống; tìm bằng tên tiếng Anh.
+- Chỉ ra type và id trên URL, request API tương ứng trong Network.
+- Refresh chi tiết, thử link thiếu/sai ID và mất mạng rồi thử lại.
+- Giải thích vì sao filter.php chưa đủ dữ liệu và cần lookup.php.
+
+2. Thêm công thức liên quan ở trang chi tiết bằng API.
+- Dùng đúng loại đang xem, không lấy đồ uống đưa vào mục món chay.
+- Bỏ ID hiện tại, chỉ hiện tối đa bốn card để bố cục gọn.
+- Dùng lại hàm tạo card trong food-ui.js, giữ link có type và id.
+- Nếu không có kết quả thì hiện thông báo phù hợp.
+- Phần liên quan tải lỗi không được làm mất nội dung chi tiết đã hiện.
+
+3. Kiểm tra và bổ sung xử lý đánh giá.
+- Thử sao 1–5, nhận xét hợp lệ, toàn khoảng trắng và quá 500 ký tự.
+- Lưu nhận xét -> refresh: còn đúng nhận xét của món đó.
+- Mở món khác: không bị lẫn đánh giá giữa hai ID hoặc hai loại.
+- Giả lập không ghi được storage: báo lỗi và giữ nội dung đang nhập.
+- Thử nhận xét chứa dấu < >, nội dung phải hiển thị như chữ.
+
+Output cuối buổi: tìm món -> mở chi tiết -> chọn công thức liên quan ->
+viết đánh giá -> refresh, dữ liệu vẫn đúng loại và ID.
+Em giải thích được async/await, response.ok, URLSearchParams, filter,
+JSON.parse, JSON.stringify và cách lấy chữ từ API đưa lên DOM.
+
+SAU BUỔI NÀY, EM LÀM TIẾP
+
+[ ] Thêm Xem thêm hoặc phân trang nếu danh sách quá dài.
+[ ] Chốt hướng công thức hay đặt món trước khi phát triển thêm giỏ/checkout.
+[ ] Rà đăng ký/đăng nhập: trim, tên rỗng, email, tài khoản trùng và JSON hỏng.
+[ ] Tài khoản hiện còn lưu mật khẩu dạng rõ; chỉ dùng mật khẩu demo.
+[ ] Bổ sung xử lý form liên hệ; nút gửi hiện chưa có chức năng.
+[ ] Nếu giữ đặt món, làm checkout demo: chặn giỏ trống, form sai không xóa giỏ,
+     không báo đã gửi đơn khi chưa có API nhận đơn.
+[ ] Tự rà menu, ảnh, form, bố cục điện thoại/máy tính và Console trước khi nộp.
+
+LƯU Ý
+
+- API công thức và đánh giá localStorage là hai nguồn dữ liệu khác nhau.
+- Đánh giá hiện chưa gửi lên server hoặc chia sẻ sang máy khác.
+- Giữ các key đánh giá: foodMenuMealReviews, foodMenuVegetarianReviews,
+  foodMenuDrinkReviews; giỏ dùng cart, tài khoản dùng users/currentUser.
+- Không cần thêm chức năng quá rộng khi luồng tìm món và chi tiết chưa chắc.
